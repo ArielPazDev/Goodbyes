@@ -1,0 +1,6 @@
+@Goodbyes.Backend.API.RESTful_HostAddress = http://localhost:5232
+
+GET {{Goodbyes.Backend.API.RESTful_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
