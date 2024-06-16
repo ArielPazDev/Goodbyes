@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodbyes.Backend.API.RESTful", "Goodbyes.Backend.API.RESTful\Goodbyes.Backend.API.RESTful.csproj", "{7303D0B0-0C55-42A5-86D6-E5F8225C1655}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodbyes.Backend.Services", "Goodbyes.Backend.Services\Goodbyes.Backend.Services.csproj", "{CF5D3352-ED27-44CA-BB9D-CF88105A9A52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7303D0B0-0C55-42A5-86D6-E5F8225C1655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7303D0B0-0C55-42A5-86D6-E5F8225C1655}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7303D0B0-0C55-42A5-86D6-E5F8225C1655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5D3352-ED27-44CA-BB9D-CF88105A9A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5D3352-ED27-44CA-BB9D-CF88105A9A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5D3352-ED27-44CA-BB9D-CF88105A9A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5D3352-ED27-44CA-BB9D-CF88105A9A52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
