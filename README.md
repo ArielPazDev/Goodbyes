@@ -1,4 +1,6 @@
-﻿# 🎉 Servicio Web de Despedidas de Solteros y Solteras 🎉
+﻿# Goodbyes
+
+## 🎉 Servicio de despedidas de Solteros y Solteras 🎉
 
 ¡Bienvenidos a la experiencia definitiva para organizar la despedida de soltero o soltera perfecta! Nuestro servicio web está diseñado para hacer de ese día especial un evento inolvidable, lleno de diversión, emoción y momentos únicos. 
 
