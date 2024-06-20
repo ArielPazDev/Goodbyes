@@ -1,6 +1,7 @@
 ﻿using Goodbyes.Backend.Services.DB.Entities;
 using Goodbyes.Backend.Services.DB.Services;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Goodbyes.Backend.API.RESTful.Controllers
 {
@@ -8,95 +9,69 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
     [Route("api/web/v1/provisions")]
     public class ProvisionsController : Controller
     {
-        [HttpGet]
-        public IEnumerable<ProvisionsEntity> Get()
+        [HttpPost]
+        public IActionResult PostProvision([FromBody] Provision provision)
         {
             ProvisionsService previsionsService = new ProvisionsService();
 
-            return previsionsService.GetProvisionsTest();
+            var done = previsionsService.PostProvision(provision);
+
+            if (done)
+                return Ok();
+            else
+                return StatusCode(StatusCodes.Status400BadRequest);
+        }
+
+        [HttpGet]
+        public IActionResult GetProvisions()
+        {
+            ProvisionsService previsionsService = new ProvisionsService();
+
+            var data = previsionsService.GetProvisions();
+
+            if (data == null)
+                return StatusCode(StatusCodes.Status404NotFound);
+            else
+                return Ok(data);
         }
 
         [HttpGet("{id:int}")]
-        public string Get2(int id)
+        public IActionResult GetProvision(int id)
         {
-            return "Hola..." + id;
+            ProvisionsService previsionsService = new ProvisionsService();
+
+            var data = previsionsService.GetProvision(id);
+
+            if (data == null)
+                return StatusCode(StatusCodes.Status404NotFound);
+            else
+                return Ok(data);
         }
 
-
-
-        /*// GET: ProvisionsController
-        public ActionResult Index()
+        [HttpPut("{id:int}")]
+        public IActionResult PutProvision(int id, [FromBody] Provision provision)
         {
-            return View();
+            ProvisionsService previsionsService = new ProvisionsService();
+
+            var done = previsionsService.PutProvision(id, provision);
+
+            if (done)
+                return Ok();
+            else
+                return StatusCode(StatusCodes.Status400BadRequest);
         }
 
-        // GET: ProvisionsController/Details/5
-        public ActionResult Details(int id)
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteProvision(int id)
         {
-            return View();
-        }
+            ProvisionsService previsionsService = new ProvisionsService();
 
-        // GET: ProvisionsController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+            var done = previsionsService.DeleteProvision(id);
 
-        // POST: ProvisionsController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            if (done)
+                return Ok();
+            else
+                return StatusCode(StatusCodes.Status400BadRequest);
         }
-
-        // GET: ProvisionsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ProvisionsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ProvisionsController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ProvisionsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
     }
 }

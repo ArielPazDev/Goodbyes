@@ -1,6 +1,9 @@
-﻿using Goodbyes.Backend.Services.DB.Entities;
+﻿using Dapper;
+using Goodbyes.Backend.Services.DB.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +12,82 @@ namespace Goodbyes.Backend.Services.DB.Services
 {
     public class ProvisionsService
     {
-        public IEnumerable<ProvisionsEntity> ProvisionTest { get; set; }
+        private string _connectionString = "data source=TD-EV-TPC;initial catalog=Goodbyes;trusted_connection=true";
 
-        public ProvisionsService()
+        public bool PostProvision(Provision provision)
         {
-            ProvisionTest = new List<ProvisionsEntity>
+            using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                new ProvisionsEntity{ ID = 0, Active = true, Type = "M", Name = "Test 1", Description = "Description 1", Price = 123.45m },
-                new ProvisionsEntity{ ID = 1, Active = false, Type = "F", Name = "Test 2", Description = "Description 2", Price = 456.78m }
-            };
+                string query = "INSERT INTO Provisions (Active, Type, Name, Description, Price) VALUES (@Active, @Type, @Name, @Description, @Price)";
+                int rows = db.Execute(query, provision);
+
+                if (rows == 1)
+                    return true;
+                else
+                    return false;
+            }
         }
 
-        public IEnumerable<ProvisionsEntity> GetProvisionsTest()
+        public IEnumerable<Provision>? GetProvisions()
         {
-            return ProvisionTest;
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    List<Provision> provisions = db.Query<Provision>("SELECT * FROM Provisions").ToList();
+
+                    return provisions;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public Provision? GetProvision(int id)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    Provision provision = db.Query<Provision>("SELECT * FROM Provisions WHERE IDProvision=" + id).First();
+
+                    return provision;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public bool PutProvision(int id, Provision provision)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Provisions SET Active=@Active, Type=@Type, Name=@Name, Description=@Description, Price=@Price WHERE IDProvision=" + id;
+                int rows = db.Execute(query, provision);
+
+                if (rows == 1)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public bool DeleteProvision(int id)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Provisions SET Active=0 WHERE IDProvision=" + id;
+                int rows = db.Execute(query);
+
+                if (rows == 1)
+                    return true;
+                else
+                    return false;
+            }
         }
     }
 }
