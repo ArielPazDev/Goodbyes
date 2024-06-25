@@ -8,12 +8,17 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
     [Route("api/web/v1/services")]
     public class ServicesController : Controller
     {
-        private ServicesModel servicesModel = new ServicesModel();
+        private IServicesModel model;
+
+        public ServicesController(IServicesModel iServicesModel)
+        {
+            model = iServicesModel;
+        }
 
         [HttpPost]
         public IActionResult PostService([FromBody] Service service)
         {
-            bool? done = servicesModel.PostService(service);
+            bool? done = model.PostService(service);
 
             if (done == true)
                 return Ok();
@@ -26,7 +31,7 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         [HttpGet]
         public IActionResult GetServices()
         {
-            IEnumerable<Service>? services = servicesModel.GetServices();
+            IEnumerable<Service>? services = model.GetServices();
 
             if (services != null)
                 return Ok(services);
@@ -37,7 +42,7 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetService(int id)
         {
-            Service? service = servicesModel.GetService(id);
+            Service? service = model.GetService(id);
 
             if (service != null)
                 return Ok(service);
@@ -50,7 +55,7 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         {
             service.IDService = id;
 
-            bool? done = servicesModel.PutService(service);
+            bool? done = model.PutService(service);
 
             if (done == true)
                 return Ok();
@@ -63,7 +68,7 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         [HttpDelete("{id:int}")]
         public IActionResult DeleteService(int id)
         {
-            bool? done = servicesModel.DeleteService(id);
+            bool? done = model.DeleteService(id);
 
             if (done == true)
                 return Ok();

@@ -10,7 +10,16 @@ using System.Threading.Tasks;
 
 namespace Goodbyes.Backend.Services.DB.Services
 {
-    public class ServicesModel
+    public interface IServicesModel
+    {
+        bool? PostService(Service service);
+        IEnumerable<Service>? GetServices();
+        Service? GetService(int id);
+        bool? PutService(Service service);
+        bool? DeleteService(int id);
+    }
+
+    public class ServicesModel : IServicesModel
     {
         public bool? PostService(Service service)
         {
