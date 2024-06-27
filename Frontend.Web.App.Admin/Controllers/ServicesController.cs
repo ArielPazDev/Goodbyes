@@ -1,5 +1,5 @@
 ﻿using Goodbyes.Backend.Services.DB.Entities;
-using Goodbyes.Backend.Services.DB.Services;
+using Goodbyes.Backend.Services.DB.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
