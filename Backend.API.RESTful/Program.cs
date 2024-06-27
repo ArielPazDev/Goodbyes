@@ -1,4 +1,4 @@
-using Goodbyes.Backend.Services.DB.Services;
+using Goodbyes.Backend.Services.DB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IServicesModel, ServicesModel>();
+builder.Services.AddScoped<IPeoplesModel, PeoplesModel>();
 
 var app = builder.Build();
 

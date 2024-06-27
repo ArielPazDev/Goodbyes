@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 html {
   font-size: 14px;
 }
@@ -15,8 +17,18 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  //background-color: #222;
 }
 
 body {
   margin-bottom: 60px;
+}
+
+.goodbyes-navbar {
+    color: #f00 !important;
+    background-color: #222b40;
+}
+
+a {
+    text-decoration: none;
 }

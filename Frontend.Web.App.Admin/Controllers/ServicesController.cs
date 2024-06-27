@@ -15,12 +15,6 @@ namespace Frontend.Web.App.Admin.Controllers
             return View(servicesModel.GetServices());
         }
 
-        // GET: ServicesController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View(servicesModel.GetService(id));
-        }
-
         // GET: ServicesController/Create
         public ActionResult Create()
         {
@@ -53,13 +47,19 @@ namespace Frontend.Web.App.Admin.Controllers
             }
         }
 
-        // GET: ServicesController/Edit/5
+        // GET: ServicesController/Details/{id}
+        public ActionResult Details(int id)
+        {
+            return View(servicesModel.GetService(id));
+        }
+
+        // GET: ServicesController/Edit/{id}
         public ActionResult Edit(int id)
         {
             return View(servicesModel.GetService(id));
         }
 
-        // POST: ServicesController/Edit/5
+        // POST: ServicesController/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -85,13 +85,13 @@ namespace Frontend.Web.App.Admin.Controllers
             }
         }
 
-        // GET: ServicesController/Delete/5
+        // GET: ServicesController/Delete/{id}
         public ActionResult Delete(int id)
         {
             return View(servicesModel.GetService(id));
         }
 
-        // POST: ServicesController/Delete/5
+        // POST: ServicesController/Delete/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

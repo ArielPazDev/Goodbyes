@@ -28,7 +28,7 @@ namespace Goodbyes.Backend.Services.DB.Entities
 
         [Required(ErrorMessage = "Required field")]
         [DataType(DataType.Text)]
-        [MinLength(10)]
+        [MinLength(2)]
         [MaxLength(50)]
         [DefaultValue("Name")]
         [Display(Name = "Nombre")]
@@ -36,7 +36,7 @@ namespace Goodbyes.Backend.Services.DB.Entities
 
         [Required(ErrorMessage = "Required field")]
         [DataType(DataType.Text)]
-        [MinLength(10)]
+        [MinLength(2)]
         [MaxLength(200)]
         [DefaultValue("Description")]
         [Display(Name = "Descripción")]

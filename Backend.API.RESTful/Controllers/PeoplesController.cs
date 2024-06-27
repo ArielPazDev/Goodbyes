@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace Goodbyes.Backend.API.RESTful.Controllers
 {
     [ApiController]
-    [Route("api/web/v1/services")]
-    public class ServicesController : Controller
+    [Route("api/web/v1/peoples")]
+    public class PeoplesController : Controller
     {
-        private IServicesModel model;
+        private IPeoplesModel model;
 
-        public ServicesController(IServicesModel iServicesModel)
+        public PeoplesController(IPeoplesModel iPeoplesModel)
         {
-            model = iServicesModel;
+            model = iPeoplesModel;
         }
 
         [HttpPost]
-        public IActionResult PostService([FromBody] Service service)
+        public IActionResult PostPeople([FromBody] People people)
         {
-            bool? done = model.PostService(service);
+            bool? done = model.PostPeople(people);
 
             if (done == true)
                 return Ok();
@@ -29,33 +29,33 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetServices()
+        public IActionResult GetPeoples()
         {
-            IEnumerable<Service>? services = model.GetServices();
+            IEnumerable<People>? peoples = model.GetPeoples();
 
-            if (services != null)
-                return Ok(services);
+            if (peoples != null)
+                return Ok(peoples);
             else
                 return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetService(int id)
+        public IActionResult GetPeople(int id)
         {
-            Service? service = model.GetService(id);
+            People? people = model.GetPeople(id);
 
-            if (service != null)
-                return Ok(service);
+            if (people != null)
+                return Ok(people);
             else
                 return StatusCode(StatusCodes.Status404NotFound);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult PutService(int id, [FromBody] Service service)
+        public IActionResult PutPeople(int id, [FromBody] People people)
         {
-            service.IDService = id;
+            people.IDPeople = id;
 
-            bool? done = model.PutService(service);
+            bool? done = model.PutPeople(people);
 
             if (done == true)
                 return Ok();
@@ -66,9 +66,9 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteService(int id)
+        public IActionResult DeletePeople(int id)
         {
-            bool? done = model.DeleteService(id);
+            bool? done = model.DeletePeople(id);
 
             if (done == true)
                 return Ok();

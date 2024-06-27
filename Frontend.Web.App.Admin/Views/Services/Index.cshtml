@@ -7,15 +7,18 @@
 
 <h1>Servicios</h1>
 
-<p>
-    <a asp-action="Create">Crear uno Nuevo</a>
+<p class="mt-2">
+    <a asp-action="Create">
+        <i class="me-2 bi bi-plus-circle-fill" style="font-size: 1.5rem; color: green;"></i>
+        Crear Nuevo
+    </a>
 </p>
-<table class="table">
+<table class="mt-4 table table-striped table-hover">
     <thead>
-        <tr>
-            <!--<th>
-                @Html.DisplayNameFor(model => model.IDService)
-            </th>-->
+        <tr class="text-center">
+            @*<th>
+            @Html.DisplayNameFor(model => model.IDService)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Active)
             </th>
@@ -38,28 +41,34 @@
         @foreach (var item in Model)
         {
             <tr>
-                <!--<td>
-                    @Html.DisplayFor(modelItem => item.IDService)
-                </td>-->
-                <td>
+                @*<td>
+                @Html.DisplayFor(modelItem => item.IDService)
+                </td>*@
+                <td class ="text-center">
                     @Html.DisplayFor(modelItem => item.Active)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
+                </td class="text-center">
+                <td class="fw-bold">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
+                <td class="text-end">
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                <td>
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IDService }) |
+                <td class="ps-4 text-center">
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.IDService }) |
                     @Html.ActionLink("Editar", "Edit", new { id = item.IDService }) |
-                    @Html.ActionLink("Desactivar", "Delete", new { id = item.IDService })
+                    @Html.ActionLink("Desactivar", "Delete", new { id = item.IDService })*@
+                    <a asp-action="Edit" asp-route-id="@item.IDService">
+                        <i class="me-4 bi bi-pencil-fill" style="font-size: 1.5rem; color: orange;"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.IDService">
+                        <i class="bi bi-trash3-fill" style="font-size: 1.5rem; color: red;"></i>
+                    </a>
                 </td>
             </tr>
         }

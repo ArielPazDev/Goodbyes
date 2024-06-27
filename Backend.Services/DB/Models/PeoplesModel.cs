@@ -10,26 +10,26 @@ using System.Threading.Tasks;
 
 namespace Goodbyes.Backend.Services.DB.Models
 {
-    public interface IServicesModel
+    public interface IPeoplesModel
     {
-        bool? PostService(Service service);
-        IEnumerable<Service>? GetServices();
-        Service? GetService(int id);
-        bool? PutService(Service service);
-        bool? DeleteService(int id);
+        bool? PostPeople(People people);
+        IEnumerable<People>? GetPeoples();
+        People? GetPeople(int id);
+        bool? PutPeople(People people);
+        bool? DeletePeople(int id);
     }
 
-    public class ServicesModel : IServicesModel
+    public class PeoplesModel : IPeoplesModel
     {
-        public bool? PostService(Service service)
+        public bool? PostPeople(People people)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "INSERT INTO Services (Active, Type, Name, Description, Price) VALUES (@Active, @Type, @Name, @Description, @Price)";
+                    string sql = "INSERT INTO Peoples (Active, Firstname, Lastname, Sex, Phone, Email) VALUES (@Active, @Firstname, @Lastname, @Sex, @Phone, @Email)";
 
-                    int rows = db.Execute(sql, service);
+                    int rows = db.Execute(sql, people);
 
                     if (rows == 1)
                         return true;
@@ -43,15 +43,15 @@ namespace Goodbyes.Backend.Services.DB.Models
             }
         }
 
-        public IEnumerable<Service>? GetServices()
+        public IEnumerable<People>? GetPeoples()
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    List<Service> services = db.Query<Service>("SELECT * FROM Services").ToList();
+                    List<People> peoples = db.Query<People>("SELECT * FROM Peoples").ToList();
 
-                    return services;
+                    return peoples;
                 }
             }
             catch
@@ -60,17 +60,17 @@ namespace Goodbyes.Backend.Services.DB.Models
             }
         }
 
-        public Service? GetService(int id)
+        public People? GetPeople(int id)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "SELECT * FROM Services WHERE IDService=@IDService";
+                    string sql = "SELECT * FROM Peoples WHERE IDPeople=@IDPeople";
 
-                    Service service = db.Query<Service>(sql, new { IDService = id }).First();
+                    People people = db.Query<People>(sql, new { IDPeople = id }).First();
 
-                    return service;
+                    return people;
                 }
             }
             catch
@@ -79,15 +79,15 @@ namespace Goodbyes.Backend.Services.DB.Models
             }
         }
 
-        public bool? PutService(Service service)
+        public bool? PutPeople(People people)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "UPDATE Services SET Active=@Active, Type=@Type, Name=@Name, Description=@Description, Price=@Price WHERE IDService=@IDService";
+                    string sql = "UPDATE Peoples SET Active=@Active, Firstname=@Firstname, Lastname=@Lastname, Sex=@Sex, Phone=@Phone, Email=@Email WHERE IDPeople=@IDPeople";
 
-                    int rows = db.Execute(sql, service);
+                    int rows = db.Execute(sql, people);
 
                     if (rows == 1)
                         return true;
@@ -101,15 +101,15 @@ namespace Goodbyes.Backend.Services.DB.Models
             }
         }
 
-        public bool? DeleteService(int id)
+        public bool? DeletePeople(int id)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "UPDATE Services SET Active=0 WHERE IDService=@IDService";
+                    string sql = "UPDATE Peoples SET Active=0 WHERE IDPeople=@IDPeople";
 
-                    int rows = db.Execute(sql, new { IDService = id });
+                    int rows = db.Execute(sql, new { IDPeople = id });
 
                     if (rows == 1)
                         return true;
