@@ -6,10 +6,15 @@
 }
 
 <h1 class="text-primary">Servicios</h1>
-<h4 class="mt-2 text-primary">Crear nuevo servicio</h4>
+<h4 class="mt-2">
+    <p class="text-secondary">
+        <i class="me-2 bi bi-plus-circle-fill" style="font-size: 1.5rem; color: green;"></i>
+        Nuevo
+    </p>
+</h4>
 <hr />
 
-<div class="my-4">
+<div class="my-5">
     <div class="col-md-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -23,28 +28,28 @@
                     <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
                 </label>
             </div>*@
-            <div class="my-4 form-group">
-                <label asp-for="Type" class="mb-2 control-label"></label>
+            <div class="form-group">
+                <label asp-for="Type" class="mb-2 fw-bold control-label"></label>
                 <input asp-for="Type" class="form-control" />
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <div class="mt-4 form-group">
-                <label asp-for="Name" class="mb-2 control-label"></label>
+                <label asp-for="Name" class="mb-2 fw-bold control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="mt-4 form-group">
-                <label asp-for="Description" class="mb-2 control-label"></label>
+                <label asp-for="Description" class="mb-2 fw-bold control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="mt-4 form-group">
-                <label asp-for="Price" class="mb-2 control-label"></label>
+                <label asp-for="Price" class="mb-2 fw-bold control-label"></label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="mt-5 form-group">
-                <input type="submit" value="Crear" class="px-4 btn btn-primary fs-5" />
+                <input type="submit" value="Guardar" class="px-4 btn btn-primary fs-5" />
                 <a class="ms-2 px-4 btn btn-outline-secondary fs-5" asp-action="Index">Cancelar</a>
             </div>
         </form>

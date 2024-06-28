@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Goodbyes.Backend.Services.DB.Entities.Party>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-primary">Fiestas</h1>
+<hr />
+
+<table class="my-5 table table-striped table-hover">
+    <thead>
+        <tr class="text-center">
+            @*<th>
+            @Html.DisplayNameFor(model => model.IDParty)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.IDUser)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.IDPeople)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.IDParty)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.IDUser)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.IDPeople)
+            </td>
+            <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Active)
+            </td>*@
+                <td class="text-center">
+                    @*@Html.DisplayFor(modelItem => item.Type)*@
+                    @if (item.Type == "H")
+                    {
+                        <span>Soltero</span>
+                    }
+                    @if (item.Type == "M")
+                    {
+                        <span>Soltera</span>
+                    }
+                </td>
+                <td class="text-center">
+                    @*@Html.DisplayFor(modelItem => item.Estate)*@
+                    @if (item.State == "P")
+                    {
+                        <span class="fw-bold text-warning">Pendiente</span>
+                    }
+                    @if (item.State == "A")
+                    {
+                        <span class="fw-bold text-success">Aprobada</span>
+                    }
+                    @if (item.State == "R")
+                    {
+                        <span class="fw-bold text-danger">Rechazada</span>
+                    }
+                </td>
+                <td class="fw-bold text-center">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="fw-bold text-center">
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td class="ps-4 text-center">
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                    <a asp-action="Earring" asp-route-id="@item.IDParty">
+                        <i class="me-4 bi bi-pause-circle-fill" style="font-size: 1.5rem; color: orange;"></i>
+                    </a>
+                    <a asp-action="Approve" asp-route-id="@item.IDParty">
+                        <i class="me-4 bi bi-check-circle-fill" style="font-size: 1.5rem; color: green;"></i>
+                    </a>
+                    <a asp-action="Decline" asp-route-id="@item.IDParty">
+                        <i class="bi bi-x-circle-fill" style="font-size: 1.5rem; color: red;"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

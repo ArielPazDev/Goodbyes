@@ -1,7 +1,12 @@
+using Goodbyes.Backend.Services.DB.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IPartiesModel, PartiesModel>();
+builder.Services.AddScoped<IServicesModel, ServicesModel>();
 
 var app = builder.Build();
 

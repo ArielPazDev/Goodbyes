@@ -7,12 +7,17 @@ namespace Frontend.Web.App.Admin.Controllers
 {
     public class ServicesController : Controller
     {
-        private ServicesModel servicesModel = new ServicesModel();
+        private IServicesModel model;
+
+        public ServicesController(IServicesModel iServicesModel)
+        {
+            model = iServicesModel;
+        }
 
         // GET: ServicesController
         public ActionResult Index()
         {
-            return View(servicesModel.GetServices());
+            return View(model.GetServices());
         }
 
         // GET: ServicesController/Create
@@ -37,7 +42,7 @@ namespace Frontend.Web.App.Admin.Controllers
                 service.Description = collection["Description"].ToString();
                 service.Price = decimal.Parse(collection["Price"].ToString());
 
-                servicesModel.PostService(service);
+                model.PostService(service);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -50,13 +55,13 @@ namespace Frontend.Web.App.Admin.Controllers
         // GET: ServicesController/Details/{id}
         public ActionResult Details(int id)
         {
-            return View(servicesModel.GetService(id));
+            return View(model.GetService(id));
         }
 
         // GET: ServicesController/Edit/{id}
         public ActionResult Edit(int id)
         {
-            return View(servicesModel.GetService(id));
+            return View(model.GetService(id));
         }
 
         // POST: ServicesController/Edit/{id}
@@ -75,7 +80,7 @@ namespace Frontend.Web.App.Admin.Controllers
                 service.Description = collection["Description"].ToString();
                 service.Price = decimal.Parse(collection["Price"].ToString());
 
-                servicesModel.PutService(service);
+                model.PutService(service);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -88,7 +93,7 @@ namespace Frontend.Web.App.Admin.Controllers
         // GET: ServicesController/Delete/{id}
         public ActionResult Delete(int id)
         {
-            return View(servicesModel.GetService(id));
+            return View(model.GetService(id));
         }
 
         // POST: ServicesController/Delete/{id}
@@ -98,7 +103,7 @@ namespace Frontend.Web.App.Admin.Controllers
         {
             try
             {
-                servicesModel.DeleteService(id);
+                model.DeleteService(id);
 
                 return RedirectToAction(nameof(Index));
             }

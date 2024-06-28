@@ -9,8 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IServicesModel, ServicesModel>();
 builder.Services.AddScoped<IPeoplesModel, PeoplesModel>();
+builder.Services.AddScoped<IServicesModel, ServicesModel>();
 
 var app = builder.Build();
 

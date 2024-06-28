@@ -6,51 +6,56 @@
 }
 
 <h1 class="text-primary">Servicios</h1>
-<h4 class="text-danger">¿Estás seguro/a de que quieres desactivar este servicio?</h4>
+<h4 class="mt-2">
+    <p class="text-danger">
+        <i class="bi bi-trash3-fill" style="font-size: 1.5rem; color: red;"></i>
+        ¿Estás seguro/a de que quieres desactivar este servicio?
+    </p>
+</h4>
 <hr />
 
-<div>
+<div class="my-5">
     <dl class="row">
         @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IDService)
+        @Html.DisplayNameFor(model => model.IDService)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IDService)
+        @Html.DisplayFor(model => model.IDService)
         </dd>*@
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Active)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Active)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Type)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Type)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
     </dl>
-    
-    <form asp-action="Delete" asp-route-id="@Model.IDService">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Volver a la lista</a>
+
+    <form class="mt-5" asp-action="Delete" asp-route-id="@Model.IDService">
+        <input type="submit" value="Desactivar" class="px-4 btn btn-danger fs-5" />
+        <a class="ms-2 px-4 btn btn-outline-secondary fs-5" asp-action="Index">Cancelar</a>
     </form>
 </div>

@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace Goodbyes.Backend.Services.DB.Entities
 {
-    public class Service
+    public class Party
     {
         [Required(ErrorMessage = "Required field")]
         [Key]
-        public int IDService { get; set; }
+        public int IDParty { get; set; }
+
+        [Required(ErrorMessage = "Required field")]
+        public int IDUser { get; set; }
+
+        [Required(ErrorMessage = "Required field")]
+        public int IDPeople { get; set; }
 
         [Required(ErrorMessage = "Required field")]
         [DefaultValue(true)]
@@ -28,6 +34,13 @@ namespace Goodbyes.Backend.Services.DB.Entities
 
         [Required(ErrorMessage = "Required field")]
         [DataType(DataType.Text)]
+        [MaxLength(1)]
+        [DefaultValue("P")]
+        [Display(Name = "Estado")]
+        public string State { get; set; }
+
+        [Required(ErrorMessage = "Required field")]
+        [DataType(DataType.Text)]
         [MinLength(2)]
         [MaxLength(50)]
         [DefaultValue("Nombre")]
@@ -35,18 +48,15 @@ namespace Goodbyes.Backend.Services.DB.Entities
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Required field")]
-        [DataType(DataType.Text)]
-        [MinLength(2)]
-        [MaxLength(200)]
-        [DefaultValue("Descripción")]
-        [Display(Name = "Descripción")]
-        public string Description { get; set; }
+        [DataType(DataType.DateTime)]
+        [DefaultValue("Fecha")]
+        [Display(Name = "Fecha")]
+        public DateTime Time { get; set; }
 
         [Required(ErrorMessage = "Required field")]
-        [DataType(DataType.Currency)]
-        [Range(0, 99999999.99)]
-        [DefaultValue(0)]
-        [Display(Name = "Precio")]
-        public decimal Price { get; set; }
+        [Range(1, 999)]
+        [DefaultValue(1)]
+        [Display(Name = "Cantidad")]
+        public int Quantity { get; set; }
     }
 }

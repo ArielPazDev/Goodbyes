@@ -1,5 +1,8 @@
 ﻿# Goodbyes
 
+Consulta la información del proyecto más abajo.
+
+
 ## 🎉 Servicio de despedidas de Solteros y Solteras 🎉
 
 ¡Bienvenidos a la experiencia definitiva para organizar la despedida de soltero o soltera perfecta! Nuestro servicio web está diseñado para hacer de ese día especial un evento inolvidable, lleno de diversión, emoción y momentos únicos. 
@@ -42,3 +45,32 @@ Nuestro equipo de soporte está disponible 24/7 para ayudar con cualquier consul
 ¿Listo para empezar a planificar la despedida de soltero o soltera perfecta? Visítanos en [www.goodbyes.events](https://www.goodbyes.events) o contáctanos directamente a través de nuestro email: contact@goodbyes.events.
 
 ¡Hagamos que tu despedida sea un evento inolvidable!
+
+
+## 🚀 Desplieque
+
+El código fuente del proyecto deberá estar gestionado en GitHub, donde todos los integrantes deben colaborar. 
+
+En la entrega, deberán incluir únicamente el link al repositorio. 
+
+Dentro de su repositorio, deberán contener un archivo Readme.md y deberán incluir la siguiente información de forma obligatoria: 
+
+El nombre de todos los integrantes del grupo 
+Las instrucciones para iniciar el sistema.
+Explicación general de la solución que deberá contener: 
+Base de datos utilizada (si fue utilizada la del curso o si se creó una propia: En caso de ser propia, informar instrucciones para conectarme a dicha base de datos)  
+Método de acceso a la base de datos: En el curso hemos utilizado Dapper para hacer peticiones a la base de datos
+Disposición de los datos a la web: si se utilizo una API REST  (como la vista en clases)y una aplicación aparte o si se utilizó Web App MVC (las usadas durante clases)
+
+### Integrantes del grupo
+
+Pedro Daniel Barranco López
+Catalina Martinez
+Mauro Ezequiel Rowain 
+Joaquín Iturre
+Gustavo Fabián Ruiz
+Carlos Ariel Paz
+
+### Instrucciones para iniciar el proyecto
+
+### Explicación general
