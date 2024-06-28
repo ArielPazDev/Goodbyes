@@ -1,6 +1,6 @@
 ﻿# Goodbyes
 
-Consulta la información del proyecto más abajo.
+	Consulta la información del proyecto más abajo.
 
 
 ## 🎉 Servicio de despedidas de Solteros y Solteras 🎉
@@ -47,30 +47,44 @@ Nuestro equipo de soporte está disponible 24/7 para ayudar con cualquier consul
 ¡Hagamos que tu despedida sea un evento inolvidable!
 
 
-## 🚀 Desplieque
+## 🚧 Información del proyecto
 
-El código fuente del proyecto deberá estar gestionado en GitHub, donde todos los integrantes deben colaborar. 
+### Explicación general
 
-En la entrega, deberán incluir únicamente el link al repositorio. 
+>Base de datos utilizada
+	
+	El sistema dispone de una base de datos propia, con una copia de seguridad ubicada en el directorio del repositorio /DB/Goodbyes.bak.
 
-Dentro de su repositorio, deberán contener un archivo Readme.md y deberán incluir la siguiente información de forma obligatoria: 
+>Instrucciones para conectarme a la base de datos
 
-El nombre de todos los integrantes del grupo 
-Las instrucciones para iniciar el sistema.
-Explicación general de la solución que deberá contener: 
-Base de datos utilizada (si fue utilizada la del curso o si se creó una propia: En caso de ser propia, informar instrucciones para conectarme a dicha base de datos)  
-Método de acceso a la base de datos: En el curso hemos utilizado Dapper para hacer peticiones a la base de datos
-Disposición de los datos a la web: si se utilizo una API REST  (como la vista en clases)y una aplicación aparte o si se utilizó Web App MVC (las usadas durante clases)
+	La cadena de conexión a la base de datos está ubicada en el archivo Config.cs del proyecto Backend.Services, en el atributo DBConnection.
+
+>Método de acceso a la base de datos
+
+	Se utilizó el ORM Dapper para realizar las consultas a la base de datos.
+
+>Disposición de los datos a la web
+
+	Las aplicaciones web para el administrador y el usuario están basadas en el patrón de diseño MVC (Modelo-Vista-Controlador).
+
+### Instrucciones para la implementación del proyecto
+
+La solución Goodbyes está desarrollada en .NET 8 y consta de cuatro proyectos.
+
+- **Backend.API.RESTful (acceso a la API RESTful del sistema)**
+- **Backend.Services (servicio de acceso a la base de datos SQL Server)**
+- **Frontend.Web.App.Admin (Aplicación web privada para administradores)**
+- **Frontend.Web.App.User (Aplicación web pública para usuarios)**
+
+> Para revisar y estudiar el código de la solución Goodbyes, clona este repositorio desde GitHub y ábrelo en Visual Studio para iniciarlo.
+
+>No olvides importar la base de datos de SQL Server y actualizar la cadena de conexión correspondiente.
 
 ### Integrantes del grupo
 
-Pedro Daniel Barranco López
-Catalina Martinez
-Mauro Ezequiel Rowain 
-Joaquín Iturre
-Gustavo Fabián Ruiz
-Carlos Ariel Paz
-
-### Instrucciones para iniciar el proyecto
-
-### Explicación general
+- **Catalina Martinez**
+- **Pedro Daniel Barranco López**
+- **Mauro Ezequiel Rowain**
+- **Joaquín Iturre**
+- **Gustavo Fabián Ruiz**
+- **Carlos Ariel Paz**
