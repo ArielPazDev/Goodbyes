@@ -1,6 +1,6 @@
 ﻿# Goodbyes
 
-	Consulta la información del proyecto más abajo.
+	Puedes encontrar todos los detalles técnicos e información completa sobre el proyecto más abajo.
 
 
 ## 🎉 Servicio de despedidas de Solteros y Solteras 🎉
@@ -69,7 +69,7 @@ Nuestro equipo de soporte está disponible 24/7 para ayudar con cualquier consul
 
 ### Instrucciones para la implementación del proyecto
 
-La solución Goodbyes está desarrollada en .NET 8 y consta de cuatro proyectos.
+La solución Goodbyes está desarrollada con el Framework de Microsoft .NET 8 y consta de cuatro proyectos.
 
 - **Backend.API.RESTful (acceso a la API RESTful del sistema)**
 - **Backend.Services (servicio de acceso a la base de datos SQL Server)**
@@ -78,7 +78,7 @@ La solución Goodbyes está desarrollada en .NET 8 y consta de cuatro proyectos.
 
 > Para revisar y estudiar el código de la solución Goodbyes, clona este repositorio desde GitHub y ábrelo en Visual Studio para iniciarlo.
 
->No olvides importar la base de datos de SQL Server y actualizar la cadena de conexión correspondiente.
+>No olvides importar la base de datos SQL Server de ejemplo y actualizar la cadena de conexión correspondiente.
 
 ### Integrantes del grupo
 
