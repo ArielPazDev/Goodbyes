@@ -15,9 +15,11 @@ namespace Goodbyes.Backend.Services.DB.Entities
         public int IDParty { get; set; }
 
         [Required(ErrorMessage = "Required field")]
+        [Key]
         public int IDUser { get; set; }
 
         [Required(ErrorMessage = "Required field")]
+        [Key]
         public int IDPeople { get; set; }
 
         [Required(ErrorMessage = "Required field")]

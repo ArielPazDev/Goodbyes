@@ -12,6 +12,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPeoplesModel, PeoplesModel>();
 builder.Services.AddScoped<IServicesModel, ServicesModel>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CORSAnyPolicy", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,8 +29,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
+app.UseCors("CORSAnyPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
