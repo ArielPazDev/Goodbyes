@@ -1,5 +1,6 @@
 ﻿using Goodbyes.Backend.Services.DB.Entities;
 using Goodbyes.Backend.Services.DB.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Goodbyes.Backend.API.RESTful.Controllers
@@ -40,6 +41,7 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize]
         public IActionResult GetService(int id)
         {
             Service? service = model.GetService(id);
