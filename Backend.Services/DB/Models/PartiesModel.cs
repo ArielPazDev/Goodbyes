@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Goodbyes.Backend.Services.DB.Entities;
+using Backend.Services.DB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Models
+namespace Backend.Services.DB.Models
 {
     public interface IPartiesModel
     {
-        bool? PostParty(Party party);
+        int PostParty(Party party);
         IEnumerable<Party>? GetParties();
         Party? GetParty(int id);
         bool? PutParty(Party party);
@@ -22,25 +22,22 @@ namespace Goodbyes.Backend.Services.DB.Models
 
     public class PartiesModel : IPartiesModel
     {
-        public bool? PostParty(Party party)
+        public int PostParty(Party party)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "INSERT INTO Parties (IDUser, IDPeople, Active, Type, State, Name, Time, Quantity) VALUES (@IDUser, @IDPeople, @Active, @Type, @State, @Name, @Time, @Quantity)";
+                    string sql = "INSERT INTO Parties (IDUser, IDPeople, Active, Type, State, Name, Time, Quantity) VALUES (@IDUser, @IDPeople, @Active, @Type, @State, @Name, @Time, @Quantity); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
-                    int rows = db.Execute(sql, party);
+                    party.IDPeople = db.QuerySingle<int>(sql, party);
 
-                    if (rows == 1)
-                        return true;
-                    else
-                        return false;
+                    return party.IDPeople;
                 }
             }
             catch (Exception ex)
             {
-                return null;
+                return 0;
             }
         }
 

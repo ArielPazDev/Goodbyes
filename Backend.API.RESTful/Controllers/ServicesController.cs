@@ -1,9 +1,9 @@
-﻿using Goodbyes.Backend.Services.DB.Entities;
-using Goodbyes.Backend.Services.DB.Models;
+﻿using Backend.Services.DB.Entities;
+using Backend.Services.DB.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Goodbyes.Backend.API.RESTful.Controllers
+namespace Backend.API.RESTful.Controllers
 {
     [ApiController]
     [Route("api/web/v1/services")]

@@ -2,15 +2,89 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="mb-5 display-4">Goodbyes User</h1>
+<div class="">
+    <div class=" text-center" style="width: 100%; background-color: #000; border-radius: 4px">
+        <img src="/img/logo.png" style="max-height: 500px; object-fit: cover;" alt="...">
+    </div>
 
     <div class="d-flex flex-column">
-        <div>
-            <a class="py-3 px-5 btn btn-outline-primary fs-3" asp-controller="Parties" asp-action="Index">Gestionar Fiestas</a>
-        </div>
-        <div class="mt-4">
-            <a class="py-3 px-5 btn btn-outline-primary fs-3" asp-controller="Services" asp-action="Index">Gestionar Servicios</a>
+        <div class="mt-2 row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a class="mt-2 py-2 px-4 btn btn-primary fs-4" asp-controller="Parties" asp-action="Create">¡Despedidas de Soltero!</a></h5>
+                        <p class="mt-4 card-text">Disfruta de una noche inolvidable con tus amigos antes de dar el gran paso. Nos encargamos de todos los detalles para que tu despedida de soltero sea legendaria. Desde fiestas temáticas hasta aventuras llenas de adrenalina, aseguramos que vivas una experiencia única. ¡Reserva ahora y empieza la celebración!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a class="mt-2 py-2 px-4 btn btn-primary fs-4" asp-controller="Services" asp-action="Index">¡Despedidas de Soltera!</a></h5>
+                        <p class="mt-4 card-text">Celebra tu despedida de soltera con elegancia y diversión junto a tus amigas. Nos ocupamos de cada detalle para que disfrutes al máximo. Desde fiestas glamorosas hasta escapadas relajantes, creamos momentos especiales y memorables. ¡Haz tu reserva y comienza la fiesta!</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <section class="mt-5">
+        <h2>🎉 Servicio de despedidas de Solteros y Solteras 🎉</h2>
+        <p>¡Bienvenidos a la experiencia definitiva para organizar la despedida de soltero o soltera perfecta! Nuestro servicio web está diseñado para hacer de ese día especial un evento inolvidable, lleno de diversión, emoción y momentos únicos.</p>
+    </section>
+
+    <section class="mt-5">
+        <h2>🚀 ¿Qué Ofrecemos?</h2>
+        <article class="mt-4">
+            <h3>Planificación Personalizada</h3>
+            <p>Cada despedida es única y debe reflejar la personalidad del homenajeado. Nuestro sistema permite personalizar cada detalle del evento, desde la temática hasta las actividades y los horarios.</p>
+        </article>
+        <article class="mt-4">
+            <h3>Amplia Variedad de Actividades</h3>
+            <p>Contamos con una extensa lista de actividades para elegir, incluyendo:</p>
+            <ul>
+                <li><strong>Fiestas temáticas</strong>: Desde noches de casino hasta fiestas de los 80.</li>
+                <li><strong>Aventuras al aire libre</strong>: Paintball, rafting, escalada y más.</li>
+                <li><strong>Experiencias de lujo</strong>: Cenas gourmet, spas, limusinas y mucho más.</li>
+                <li><strong>Eventos especiales</strong>: Talleres de coctelería, clases de baile, juegos de escape, etc.</li>
+            </ul>
+        </article>
+        <article class="mt-4">
+            <h3>Fácil Gestión y Coordinación</h3>
+            <p>Nuestro panel de control intuitivo permite a los organizadores gestionar invitados, confirmar asistencias, y coordinar todos los detalles logísticos con facilidad. Olvídate del estrés y deja todo en nuestras manos.</p>
+        </article>
+        <article class="mt-4">
+            <h3>Presupuestos Flexibles</h3>
+            <p>Nos adaptamos a todas las necesidades y presupuestos. Ofrecemos paquetes desde opciones económicas hasta experiencias de lujo. Puedes diseñar tu evento a medida, eligiendo solo lo que necesitas.</p>
+        </article>
+        <article class="mt-4">
+            <h3>Soporte Dedicado</h3>
+            <p>Nuestro equipo de soporte está disponible 24/7 para ayudar con cualquier consulta o problema que puedas tener. Queremos asegurarnos de que tu evento sea perfecto de principio a fin.</p>
+        </article>
+    </section>
+
+    <section class="mt-5">
+        <h2>🎯 ¿Por Qué Elegirnos?</h2>
+        <ul>
+            <li><strong>Experiencia y Profesionalismo</strong>: Llevamos años organizando despedidas de soltero y soltera con éxito.</li>
+            <li><strong>Creatividad y Originalidad</strong>: Nos especializamos en crear experiencias únicas y memorables.</li>
+            <li><strong>Facilidad y Comodidad</strong>: Planificar tu despedida nunca ha sido tan sencillo.</li>
+        </ul>
+    </section>
+
+    <section class="mt-5">
+        <h2>🌟 Testimonios</h2>
+        <blockquote>
+            <p>“¡La mejor despedida de soltera que pude haber imaginado! Todo salió perfecto gracias a su excelente organización.” - Laura G.</p>
+        </blockquote>
+        <blockquote>
+            <p>“Un servicio impecable, desde la primera consulta hasta el día del evento. ¡Altamente recomendable!” - Pedro B.</p>
+        </blockquote>
+    </section>
+
+    <section class="mt-5">
+        <h2>📞 Contáctanos</h2>
+        <p>¿Listo para empezar a planificar la despedida de soltero o soltera perfecta? Visítanos en <a href="https://www.goodbyes.events">www.goodbyes.events</a> o contáctanos directamente a través de nuestro email: <a href="mailto:contact@goodbyes.events">contact@goodbyes.events</a>.</p>
+        <p>¡Hagamos que tu despedida sea un evento inolvidable!</p>
+    </section>
 </div>

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Entities
+namespace Backend.Services.DB.Entities
 {
     public class People
     {
@@ -34,13 +34,6 @@ namespace Goodbyes.Backend.Services.DB.Entities
         [DefaultValue("Apellido")]
         [Display(Name = "Apellido")]
         public string Lastname { get; set; }
-
-        [Required(ErrorMessage = "Required field")]
-        [DataType(DataType.Text)]
-        [MaxLength(1)]
-        [DefaultValue("?")]
-        [Display(Name = "Sexo")]
-        public string Sex { get; set; }
 
         [Required(ErrorMessage = "Required field")]
         [DataType(DataType.PhoneNumber)]

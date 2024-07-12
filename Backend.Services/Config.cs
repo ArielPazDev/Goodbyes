@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services
+namespace Backend.Services
 {
     public class Config
     {

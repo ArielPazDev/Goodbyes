@@ -1,4 +1,4 @@
-using Goodbyes.Backend.Services.DB.Models;
+using Backend.Services.DB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

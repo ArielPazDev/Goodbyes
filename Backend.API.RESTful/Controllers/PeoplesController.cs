@@ -1,8 +1,8 @@
-﻿using Goodbyes.Backend.Services.DB.Entities;
-using Goodbyes.Backend.Services.DB.Models;
+﻿using Backend.Services.DB.Entities;
+using Backend.Services.DB.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Goodbyes.Backend.API.RESTful.Controllers
+namespace Backend.API.RESTful.Controllers
 {
     [ApiController]
     [Route("api/web/v1/peoples")]
@@ -18,12 +18,10 @@ namespace Goodbyes.Backend.API.RESTful.Controllers
         [HttpPost]
         public IActionResult PostPeople([FromBody] People people)
         {
-            bool? done = model.PostPeople(people);
+            int id = model.PostPeople(people);
 
-            if (done == true)
+            if (id > 0)
                 return Ok();
-            else if (done == false)
-                return StatusCode(StatusCodes.Status400BadRequest);
             else
                 return StatusCode(StatusCodes.Status500InternalServerError);
         }

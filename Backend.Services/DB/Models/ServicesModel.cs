@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Goodbyes.Backend.Services.DB.Entities;
+using Backend.Services.DB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Models
+namespace Backend.Services.DB.Models
 {
     public interface IServicesModel
     {

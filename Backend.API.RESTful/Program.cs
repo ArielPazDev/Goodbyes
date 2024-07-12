@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-using Goodbyes.Backend.Services.DB.Models;
+using Backend.Services.DB.Models;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);

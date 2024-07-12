@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Entities
+namespace Backend.Services.DB.Entities
 {
     public class Party
     {
@@ -60,5 +60,16 @@ namespace Goodbyes.Backend.Services.DB.Entities
         [DefaultValue(1)]
         [Display(Name = "Cantidad")]
         public int Quantity { get; set; }
+    }
+
+    public class PartyCreate
+    {
+        public Party Party { get; set; }
+
+        public People People { get; set; }
+
+        public IEnumerable<Service> Services { get; set; }
+
+        public IEnumerable<PartyService> PartyService { get; set; }
     }
 }

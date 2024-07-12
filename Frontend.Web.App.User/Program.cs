@@ -1,4 +1,4 @@
-using Goodbyes.Backend.Services.DB.Models;
+using Backend.Services.DB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IPartiesModel, PartiesModel>();
+builder.Services.AddScoped<IPartiesServicesModel, PartiesServicesModel>();
+builder.Services.AddScoped<IPeoplesModel, PeoplesModel>();
 builder.Services.AddScoped<IServicesModel, ServicesModel>();
 
 var app = builder.Build();

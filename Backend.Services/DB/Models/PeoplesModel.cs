@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Goodbyes.Backend.Services.DB.Entities;
+using Backend.Services.DB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Models
+namespace Backend.Services.DB.Models
 {
     public interface IPeoplesModel
     {
-        bool? PostPeople(People people);
+        int PostPeople(People people);
         IEnumerable<People>? GetPeoples();
         People? GetPeople(int id);
         bool? PutPeople(People people);
@@ -21,25 +21,22 @@ namespace Goodbyes.Backend.Services.DB.Models
 
     public class PeoplesModel : IPeoplesModel
     {
-        public bool? PostPeople(People people)
+        public int PostPeople(People people)
         {
             try
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "INSERT INTO Peoples (Active, Firstname, Lastname, Sex, Phone, Email) VALUES (@Active, @Firstname, @Lastname, @Sex, @Phone, @Email)";
+                    string sql = "INSERT INTO Peoples (Active, Firstname, Lastname, Phone, Email) VALUES (@Active, @Firstname, @Lastname, @Phone, @Email); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
-                    int rows = db.Execute(sql, people);
+                    people.IDPeople = db.QuerySingle<int>(sql, people);
 
-                    if (rows == 1)
-                        return true;
-                    else
-                        return false;
+                    return people.IDPeople;
                 }
             }
             catch (Exception ex)
             {
-                return null;
+                return 0;
             }
         }
 
@@ -85,7 +82,7 @@ namespace Goodbyes.Backend.Services.DB.Models
             {
                 using (IDbConnection db = new SqlConnection(Config.DBConnection))
                 {
-                    string sql = "UPDATE Peoples SET Active=@Active, Firstname=@Firstname, Lastname=@Lastname, Sex=@Sex, Phone=@Phone, Email=@Email WHERE IDPeople=@IDPeople";
+                    string sql = "UPDATE Peoples SET Active=@Active, Firstname=@Firstname, Lastname=@Lastname, Phone=@Phone, Email=@Email WHERE IDPeople=@IDPeople";
 
                     int rows = db.Execute(sql, people);
 

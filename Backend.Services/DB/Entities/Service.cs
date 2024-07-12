@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goodbyes.Backend.Services.DB.Entities
+namespace Backend.Services.DB.Entities
 {
     public class Service
     {

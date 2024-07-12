@@ -1,4 +1,4 @@
-﻿using Goodbyes.Backend.Services.DB.Models;
+﻿using Backend.Services.DB.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
